@@ -1,0 +1,10 @@
+function [A, B, C, D, E] = mehdss(M, P, K, B1, C1)
+    ns = size(M,1);
+    n = ns(1);
+    p = size(B1,2);
+    q = size(C1,1);
+    E = ([M, zeros(ns); zeros(ns), eye(n)]);
+    A = ([-P, -K; eye(n), zeros(ns)]);
+    B = ([B1; zeros(n, p)]);
+    C = ([C1, zeros(q, n); zeros(q, n), C1]);
+    D = zeros(2*q, p);
